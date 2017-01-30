@@ -1,0 +1,5 @@
+[GENERAL] [E02] Message: Unable to connect to the database.; Details: exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'website_exorath'@'localhost' (using password: YES)' in /mnt/vdb/vhosts/exorath.com/new.exorath.com/res/init.php:19
+Stack trace:
+#0 /mnt/vdb/vhosts/exorath.com/new.exorath.com/res/init.php(19): PDO->__construct('mysql:host=loca...', 'website_exorath', '8vVh5s3#Duf8y0?...')
+#1 /mnt/vdb/vhosts/exorath.com/new.exorath.com/index.php(5): include_once('/mnt/vdb/vhosts...')
+#2 {main};

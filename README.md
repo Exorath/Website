@@ -1,2 +1,2 @@
 # Website
-Exorath website
+Exorath website by NielsEulink AND LKPridgeon

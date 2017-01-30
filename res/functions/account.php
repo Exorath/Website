@@ -39,7 +39,9 @@ function account_login($config, $db, $email, $password){
   $user->execute();
   
   if($user->rowCount() == 1){
-    if(password_verify($password, $user['user_password'])){
+    if(empty($user['user_password']) AND !empty($user['user_google_id'])){
+       header('Location: ' . $googleclient->createAuthUrl());
+    } else if(password_verify($password, $user['user_password'])){
       $sessionhash = account_session_create($db, $user['user_id']);
       $_SESSION['sessionhash'] = $sessionhash;
       return true;

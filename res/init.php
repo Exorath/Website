@@ -25,9 +25,17 @@
     }
   }
 
+  $googleclient = new Google_Client();
+	$googleclient->setClientId($conf->get('MAIN.GOOGLE.GOOGLE_CLIENT_ID'));
+	$googleclient->setClientSecret($conf->get('MAIN.GOOGLE.GOOGLE_CLIENT_SECRET'));
+	$googleclient->setRedirectUri($conf->get('MAIN.GOOGLE.GOOGLE_REDIRECT_URI'));
+	$googleclient->addScope("email");
+	$googleclient->addScope("profile");
+	$googleservice = new Google_Service_Oauth2($googleclient);
+
   $user_online = !empty($_SESSION['user']);
   if($user_online){
-    // if user have a session with name "user" with an hash in it; $user = acc_get($conf, $db);
+    $user = account_session_check($config, $db, $_SESSION['sessionhash']);
   } else {
     $user = false;
   }

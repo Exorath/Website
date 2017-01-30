@@ -27,7 +27,7 @@
 
   $user_online = !empty($_SESSION['user']);
   if($user_online){
-    // if user have a session with name "user" with an hash in it; $user = acc_get($conf, $db);
+    $user = account_session_check($config, $db, $_SESSION['sessionhash']);
   } else {
     $user = false;
   }

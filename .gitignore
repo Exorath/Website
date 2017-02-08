@@ -1,2 +1,2 @@
 res/configs/*.json
-**/log.txt
+res/log.txt
